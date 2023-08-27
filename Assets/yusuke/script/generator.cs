@@ -5,6 +5,7 @@ using UnityEngine;
 public class generator : MonoBehaviour
 {
     [SerializeField] GameObject _enemy;
+    [SerializeField] GameObject _boss;
     GameObject _player;
     Vector3 _spownLocate;
     float _sponeTimer;
@@ -38,6 +39,9 @@ public class generator : MonoBehaviour
         {
             _waveSave += 1;
             Debug.Log($"ウェーブ{_waveSave}");
+            _spownLocate.x = Random.Range(_player.transform.position.x - 30, _player.transform.position.x + 30);
+            _spownLocate.y = Random.Range(_player.transform.position.y - 20, _player.transform.position.y + 20);
+            Instantiate(_boss,_spownLocate,this.transform.rotation);
             _enemyVolume += 5;
         }
     }
