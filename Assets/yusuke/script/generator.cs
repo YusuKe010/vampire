@@ -9,6 +9,7 @@ public class generator : MonoBehaviour
     Vector3 _spownLocate;
     float _sponeTimer;
     [SerializeField] int _enemyVolume = 10;
+    int _waveSave = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,25 +34,11 @@ public class generator : MonoBehaviour
             _sponeTimer = 0;
         }
 
-        if(GameManager._instance.Wave == 2)
+        if(GameManager._instance.Wave != _waveSave)
         {
-            Debug.Log("ウェーブ2");
-            _enemyVolume += 3;
-        }
-        if (GameManager._instance.Wave == 3)
-        {
-            Debug.Log("ウェーブ3");
+            _waveSave += 1;
+            Debug.Log($"ウェーブ{_waveSave}");
             _enemyVolume += 5;
-        }
-        if (GameManager._instance.Wave == 4)
-        {
-            Debug.Log("ウェーブ4");
-            _enemyVolume += 7;
-        }
-        if (GameManager._instance.Wave == 5)
-        {
-            Debug.Log("ウェーブ5");
-            _enemyVolume += 10;
         }
     }
 

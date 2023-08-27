@@ -8,7 +8,6 @@ public class batControllar : MonoBehaviour
     Rigidbody2D _rb;
     GameObject _player;
     [SerializeField] int _enemyHp = 3;
-    [SerializeField] int _enemyAttack = 1;
     [SerializeField] GameObject[] _item;
 
     float _damageTimer;
@@ -17,6 +16,10 @@ public class batControllar : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.FindGameObjectWithTag("Player");
+        if (_player.transform.position.x - this.transform.position.x < 0)
+        {
+            this.transform.localScale = new Vector3(-1 * this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z); ;
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class batControllar : MonoBehaviour
             Instantiate(_item[Random.Range(0,_item.Length)], this.gameObject.transform.position,this.gameObject.transform.rotation);
             Destroy(this.gameObject);
         }
+        
     }
     public void WeponHit(int Damage)
     {
