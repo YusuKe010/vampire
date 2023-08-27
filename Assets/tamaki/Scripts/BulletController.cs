@@ -12,16 +12,28 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player.transform.localScale.x >= 0)
+        {
+            _rb.velocity = Vector2.right * _bulletSpeed;
+        }
+        else
+        {
+            _rb.velocity = Vector2.left * _bulletSpeed;
+        }
+
         Destroy(this.gameObject, _lifeTime);
     }
 
     private void Update()
-    {
-        _rb.velocity = Vector2.right * _bulletSpeed;
+    {    
         Debug.Log(_rb.velocity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        batControllar batcon = collision.GetComponent<batControllar>();
+        batcon.WeponHit(_hitDamage);
     }
 }
