@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
         _nowHp += value;
     }
 
+    public void PlayerDamage(int damage)
+    {
+        _nowHp -= damage;
+    }
+
     void PlayerScaleController()
     {
         if (_playerInput.XInput == 1)
