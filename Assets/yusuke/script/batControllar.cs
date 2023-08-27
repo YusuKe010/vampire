@@ -8,6 +8,7 @@ public class batControllar : MonoBehaviour
     Rigidbody2D _rb;
     GameObject _player;
     [SerializeField] int _enemyHp = 3;
+    [SerializeField] int _enemyAttack = 1;
     [SerializeField] GameObject[] _item;
 
     float _damageTimer;
@@ -27,20 +28,12 @@ public class batControllar : MonoBehaviour
         if (_enemyHp <= 0)
         {
             Instantiate(_item[Random.Range(0,_item.Length)], this.gameObject.transform.position,this.gameObject.transform.rotation);
-            Destroy(_player);
+            Destroy(this.gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void WeponHit(int Damage)
     {
-        _enemyHp -= 1;
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        _damageTimer += Time.deltaTime;
-        if (_damageTimer < 1)
-        {
-            _enemyHp -= 1;
-            _damageTimer = 0;
-        }
+        _enemyHp -= Damage;
     }
 }
+

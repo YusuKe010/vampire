@@ -6,9 +6,10 @@ public class generator : MonoBehaviour
 {
     [SerializeField] GameObject _enemy;
     GameObject _player;
-    float _worldTimer;
     Vector3 _spownLocate;
-    int wave;
+    float _sponeTimer;
+    [SerializeField] int _enemyVolume = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,23 +19,40 @@ public class generator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _worldTimer = Time.deltaTime;
-        if(wave == 0)
-        {
+        _sponeTimer += Time.deltaTime;
 
-            
-            for (int i = 0; i < 10; i++)
+        if (_sponeTimer > 10.0f)
+        {
+            Debug.Log("スポーン");
+            for (int i = 0; i < _enemyVolume; i++)
             {
-                _spownLocate.x = Random.Range(_player.transform.position.x - 200, _player.transform.position.x + 200);
-                _spownLocate.y = Random.Range(_player.transform.position.y - 100, _player.transform.position.y + 100);
+                _spownLocate.x = Random.Range(_player.transform.position.x - 30, _player.transform.position.x + 30);
+                _spownLocate.y = Random.Range(_player.transform.position.y - 20, _player.transform.position.y + 20);
                 Instantiate(_enemy, _spownLocate, _enemy.transform.rotation);
             }
-            if(_worldTimer > 0)
-            {
+            _sponeTimer = 0;
+        }
 
-                wave = 1;
-            }
-            
+        if(GameManager._instance.Wave == 2)
+        {
+            Debug.Log("ウェーブ2");
+            _enemyVolume += 3;
+        }
+        if (GameManager._instance.Wave == 3)
+        {
+            Debug.Log("ウェーブ3");
+            _enemyVolume += 5;
+        }
+        if (GameManager._instance.Wave == 4)
+        {
+            Debug.Log("ウェーブ4");
+            _enemyVolume += 7;
+        }
+        if (GameManager._instance.Wave == 5)
+        {
+            Debug.Log("ウェーブ5");
+            _enemyVolume += 10;
         }
     }
+
 }
