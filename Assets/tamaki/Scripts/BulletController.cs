@@ -28,7 +28,7 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {    
-        Debug.Log(_rb.velocity);
+        //Debug.Log(_rb.velocity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

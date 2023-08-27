@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         _time += Time.deltaTime;
         _limitTime -= Time.deltaTime;
 
-        if (0 > _limitTime /*|| PlayerState == Dead*/)
+        if (0 > _limitTime || PlayerController.Instance.NowHp < 0)
         {
             _changer.SceneChange(_changeSceneName);
         }
