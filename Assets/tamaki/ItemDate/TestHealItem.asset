@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb03b6af46eec6b4a9849d86999389bb, type: 3}
   m_Name: TestHealItem
   m_EditorClassIdentifier: 
-  _itemName: test
+  _itemName: TestHeathItem
   _itemType: 0
   _itemGet: 1

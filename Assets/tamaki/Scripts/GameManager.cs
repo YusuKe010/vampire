@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     SceneChanger _changer;
     float _time = 0;
     int _wave = 1;
+    int _killCount = 0;
 
     void Awake()
     {
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         _time += Time.deltaTime;
 
-        if (_time > _limitTime)
+        if (_time > _limitTime /*|| PlayerState == Dead*/)
         {
             _changer.SceneChange(_changeSceneName);
         }
@@ -41,5 +42,10 @@ public class GameManager : MonoBehaviour
         {
             _wave++;
         }
+    }
+
+    public void AddKillCount()
+    {
+        _killCount++;
     }
 }

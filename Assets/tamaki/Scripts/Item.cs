@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "CreateItem")]
 public class Item : ScriptableObject
 {
-    [SerializeField] string _itemName = "Default";
+    [SerializeField] string _itemName = string.Empty;
     public string ItemName => _itemName;
     [SerializeField] ItemTypeEnum _itemType = ItemTypeEnum.HealItem;
     public ItemTypeEnum ItemType => _itemType;
@@ -15,6 +15,6 @@ public class Item : ScriptableObject
     public enum ItemTypeEnum
     {
         HealItem,
-        WaponItem,
+        WeaponItem,
     }
 }
