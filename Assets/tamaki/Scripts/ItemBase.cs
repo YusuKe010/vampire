@@ -12,12 +12,11 @@ public class ItemBase : MonoBehaviour
             //‚»‚ÌŒãItemGet‚Ì”’l‚Å•Ï‰»‚ğ‚³‚¹‚é
             PlayerController playerController = collision.GetComponent<PlayerController>();
             PlayerController.Instance.PlayerHeal(_item.ItemGet);
+            Destroy(this.gameObject);
         }
         else if (collision.tag == "Player" && _item.ItemType == Item.ItemTypeEnum.WeaponItem)
         {
-
-        }
-
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
+        }       
     }
 }
