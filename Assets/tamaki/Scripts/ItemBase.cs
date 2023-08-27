@@ -4,11 +4,6 @@ public class ItemBase : MonoBehaviour
 {
     [SerializeField] Item _item = null;
 
-    private void Start()
-    {
-        _item = GetComponent<Item>();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && _item.ItemType == Item.ItemTypeEnum.HealItem)

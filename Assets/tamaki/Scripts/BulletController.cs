@@ -14,7 +14,7 @@ public class BulletController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         GameObject player = GameObject.FindWithTag("Player");
 
-        if (player.transform.localScale.x >= 0)
+        if (player.transform.localScale.x <= 0)
         {
             _rb.velocity = Vector2.right * _bulletSpeed;
         }

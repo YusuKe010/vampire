@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float _limitTime = 1.0f;
+    [SerializeField] float _limitTime = 300f;
     [SerializeField] float _changeWaveTime = 30f;
     [SerializeField] string _changeSceneName = string.Empty;
 
@@ -34,8 +34,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _time += Time.deltaTime;
+        _limitTime -= Time.deltaTime;
 
-        if (_time > _limitTime /*|| PlayerState == Dead*/)
+        if (0 > _limitTime /*|| PlayerState == Dead*/)
         {
             _changer.SceneChange(_changeSceneName);
         }
