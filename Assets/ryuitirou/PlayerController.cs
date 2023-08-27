@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb;
     PlayerInput _playerInput;
 
+    public int NowHp => _nowHp;
+
     public static PlayerController Instance;
 
     private void Awake()
