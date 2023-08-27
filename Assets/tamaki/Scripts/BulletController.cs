@@ -33,7 +33,10 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        batControllar batcon = collision.GetComponent<batControllar>();
-        batcon.WeponHit(_hitDamage);
+        if (collision.tag == "Enemy") 
+        {
+            batControllar batcon = collision.GetComponent<batControllar>();
+            batcon.WeponHit(_hitDamage);
+        }     
     }
 }
