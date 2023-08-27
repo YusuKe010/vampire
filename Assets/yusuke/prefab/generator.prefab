@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 4871755464278394699, guid: c8a1f17a0af47204d92d16be17ccad12, type: 3}
+  _boss: {fileID: 1959017874528905187, guid: fb481341e4d6f664198249c750090819, type: 3}
   _enemyVolume: 10
