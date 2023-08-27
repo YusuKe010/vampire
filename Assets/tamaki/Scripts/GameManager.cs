@@ -4,13 +4,15 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float _limitTime = 1.0f;
     [SerializeField] float _changeWaveTime = 30f;
-    [SerializeField] string _changeSceneName = "Default";
+    [SerializeField] string _changeSceneName = string.Empty;
 
     public static GameManager _instance = null;
     SceneChanger _changer;
     float _time = 0;
     int _wave = 1;
+    public int Wave => _wave;
     int _killCount = 0;
+    public int KillCount => _killCount;
 
     void Awake()
     {
@@ -42,10 +44,5 @@ public class GameManager : MonoBehaviour
         {
             _wave++;
         }
-    }
-
-    public void AddKillCount()
-    {
-        _killCount++;
     }
 }
