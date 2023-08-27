@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 [CreateAssetMenu(fileName = "Player", menuName = "ScriptableObjects/CreatePlayerParamAsset")]
 public class PlayerStatus : ScriptableObject
 {
