@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int _nowHp;
     [SerializeField] PlayerDataBase _playerData;
     Rigidbody2D _rb;
+    Transform _playerTransform;
     PlayerInput _playerInput;
 
     public int NowHp => _nowHp;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerTransform = GetComponent<Transform>();
         _playerInput = GetComponent<PlayerInput>();
     }
 
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMove();
         PlayerHp();
+        PlayerScaleController();
     }
 
     void PlayerMove()
@@ -52,5 +55,17 @@ public class PlayerController : MonoBehaviour
     public void PlayerHeal(int value)
     {
         _nowHp += value;
+    }
+
+    void PlayerScaleController()
+    {
+        if (_playerInput.XInput == 1)
+        {
+            _playerTransform.localScale = new Vector2(-1, 1);
+        }
+        if (_playerInput.XInput == -1)
+        {
+            _playerTransform.localScale = new Vector2(1, 1);
+        }
     }
 }
